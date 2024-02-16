@@ -4,7 +4,7 @@ import os
 import openpyxl
 from datetime import datetime
 known_faces = {}
-pictures_folder = "E:\PROJECT 1\Digital-Attendance\PIC DATA"
+pictures_folder = "E:\CODE\PROJECT 1\Digital-Attendance\PIC DATA"
 for filename in os.listdir(pictures_folder):
     if filename.endswith(".jpg") or filename.endswith(".png"):
         name = os.path.splitext(filename)[0]
@@ -12,7 +12,7 @@ for filename in os.listdir(pictures_folder):
         known_image = face_recognition.load_image_file(image_path)
         known_image_encoding = face_recognition.face_encodings(known_image)[0]
         known_faces[name] = known_image_encoding
-excel_folder = "E:\PROJECT 1\Digital-Attendance"
+excel_folder = "E:\CODE\PROJECT 1\Digital-Attendance"
 excel_file_name = datetime.today().strftime('%d-%m-%Y') + ".xlsx"
 excel_file_path = os.path.join(excel_folder, excel_file_name)
 if not os.path.exists(excel_folder):
